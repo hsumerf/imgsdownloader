@@ -10,3 +10,6 @@ class RafiqindexSpider(scrapy.Spider):
     def parse(self, response):
         #All emails in specific page
         print(response.xpath('//*/text()').re('^.*@.*\.com'))
+        #All Pak-Numbers
+        #wrong re - >print(response.xpath('//*/text()').re('^\+92[\d- ]*$'))
+        print(response.xpath('//*/text()').re('^\+92[\d -]*$'))
