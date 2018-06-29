@@ -12,3 +12,4 @@ class ImgsdownloaderItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
     pass
+    urls = scrapy.Field()
