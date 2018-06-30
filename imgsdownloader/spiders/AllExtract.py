@@ -2,13 +2,15 @@
 import scrapy
 
 
-class RafiqindexSpider(scrapy.Spider):
-    name = 'rafiqIndex'
+class AllextractSpider(scrapy.Spider):
+    name = 'AllExtract'
     allowed_domains = ['smrafiq.com']
-    start_urls = ['http://smrafiq.com/contact']
+    start_urls = ['http://smrafiq.com/']
+
+    def start_requests(self):
+        yield scrapy.Request('http://smrafiq.com', self.parse)
 
     def parse(self, response):
-
         emails_path = 'emails.txt'
         new_emails = open(emails_path,'a')
         #All emails in specific page
@@ -27,3 +29,14 @@ class RafiqindexSpider(scrapy.Spider):
             new_nums.write(num)
             new_nums.write("\n")
         new_nums.close()
+    #   All urls in new file urls.txt
+        print(response.url)
+        urls_path = 'urls.txt'
+        new_urls = open(urls_path,'a')
+        new_urls.write(response.url)
+        new_urls.write("\n")
+#   extract all urls in Page
+        for url in response.xpath('//a/@href').re('(?!.*#)^.*$'):
+            yield scrapy.Request(url, callback=self.parse)
+    #close file
+        new_urls.close()
