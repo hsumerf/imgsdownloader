@@ -40,3 +40,9 @@ class AllextractSpider(scrapy.Spider):
             yield scrapy.Request(url, callback=self.parse)
     #close file
         new_urls.close()
+        #All images extraction
+        for elem in response.xpath("//img"):
+
+            img_url = elem.xpath("@src").extract_first()
+            print(img_url)
+            yield {'image_url': [img_url]}

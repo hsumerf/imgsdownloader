@@ -11,5 +11,7 @@ import scrapy
 class ImgsdownloaderItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    pass
-    urls = scrapy.Field()
+
+    #urls = scrapy.Field()
+   # title = scrapy.Field()
+    image_urls = scrapy.Field()
