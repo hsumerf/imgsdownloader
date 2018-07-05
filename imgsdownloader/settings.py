@@ -19,7 +19,7 @@ NEWSPIDER_MODULE = 'imgsdownloader.spiders'
 #USER_AGENT = 'imgsdownloader (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 ITEM_PIPELINES = {'scrapy.pipelines.images.ImagesPipeline': 1}
 
 IMAGES_STORE = "/home/hsumerf/Desktop/imgsdownloader/"

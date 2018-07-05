@@ -1,16 +1,29 @@
 # -*- coding: utf-8 -*-
-import scrapy
+from scrapy.spiders import CrawlSpider, Rule
+from scrapy.linkextractors import LinkExtractor
 
-
-class AllextractSpider(scrapy.Spider):
+class AllextractSpider(CrawlSpider):
     name = 'AllExtract'
     allowed_domains = ['smrafiq.com']
     start_urls = ['http://smrafiq.com/']
 
-    def start_requests(self):
-        yield scrapy.Request('http://smrafiq.com', self.parse)
+    # def start_requests(self):
+    #     yield scrapy.Request('http://smrafiq.com', self.parse)
+    #extract all the urls which are in index page and send requests, follow their urls too
+    rules = (Rule(LinkExtractor(), callback='parse_page', follow=True),)
 
-    def parse(self, response):
+    def parse_page(self, response):
+
+        # All images extraction
+        for elem in response.xpath("//img"):
+            img_url = elem.xpath("@src").extract_first()
+            # img_url = re.findall(r"(?!.* )^.*$", img_url)[0]
+            yield {'image_urls': [img_url]}
+
+
+
+
+
         emails_path = 'emails.txt'
         new_emails = open(emails_path,'a')
         #All emails in specific page
@@ -40,9 +53,4 @@ class AllextractSpider(scrapy.Spider):
             yield scrapy.Request(url, callback=self.parse)
     #close file
         new_urls.close()
-        #All images extraction
-        for elem in response.xpath("//img"):
 
-            img_url = elem.xpath("@src").extract_first()
-            print(img_url)
-            yield {'image_url': [img_url]}
