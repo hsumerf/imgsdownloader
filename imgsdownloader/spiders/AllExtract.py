@@ -23,7 +23,7 @@ class AllextractSpider(CrawlSpider):
 
 
 
-
+    #emails
         emails_path = 'emails.txt'
         new_emails = open(emails_path,'a')
         #All emails in specific page
