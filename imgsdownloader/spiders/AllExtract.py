@@ -17,6 +17,7 @@ class AllextractSpider(CrawlSpider):
         # All images extraction
         for elem in response.xpath("//img"):
             img_url = elem.xpath("@src").extract_first()
+            img_url = response.urljoin(img_url)
             # img_url = re.findall(r"(?!.* )^.*$", img_url)[0]
             yield {'image_urls': [img_url]}
 

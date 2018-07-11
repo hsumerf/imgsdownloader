@@ -20,9 +20,9 @@ NEWSPIDER_MODULE = 'imgsdownloader.spiders'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
-ITEM_PIPELINES = {'scrapy.pipelines.images.ImagesPipeline': 1}
+#ITEM_PIPELINES = {'scrapy.pipelines.images.ImagesPipeline': 1}
 
-IMAGES_STORE = "/home/hsumerf/Desktop/imgsdownloader/"
+#IMAGES_STORE = "/home/hsumerf/Desktop/imgsdownloader/"
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
 
