@@ -2,6 +2,7 @@
 import scrapy
 from selenium import webdriver
 from time import sleep
+#linkedin login with scrapy+selenium
 class LinkedinSpider(scrapy.Spider):
     name = 'linkedin'
     allowed_domains = ['linkedin.com']
@@ -14,7 +15,7 @@ class LinkedinSpider(scrapy.Spider):
         email = driver.find_element_by_class_name('login-email')
         email.send_keys('h.s.umer.farooq@gmail.com')
         password = driver.find_element_by_class_name('login-password')
-        password.send_keys('cscourse+-789')
+        password.send_keys('password')
         submit = driver.find_element_by_xpath('//*[@type="submit"]')
         submit.click()
         sleep(3)

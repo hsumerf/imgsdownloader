@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
 
-
+#emails and numbers extractor from E-commerce websites
 class RafiqindexSpider(scrapy.Spider):
     name = 'rafiqIndex'
     allowed_domains = ['smrafiq.com']

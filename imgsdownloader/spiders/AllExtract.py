@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from scrapy.spiders import CrawlSpider, Rule
 from scrapy.linkextractors import LinkExtractor
-
+# images+numbers+emails+urls extractor from any E-commerce website
 class AllextractSpider(CrawlSpider):
     name = 'AllExtract'
     allowed_domains = ['smrafiq.com']
