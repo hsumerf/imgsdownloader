@@ -15,7 +15,7 @@ class LinkedinSpider(scrapy.Spider):
         email = driver.find_element_by_class_name('login-email')
         email.send_keys('h.s.umer.farooq@gmail.com')
         password = driver.find_element_by_class_name('login-password')
-        password.send_keys('password')
+        password.send_keys('Enter password')
         submit = driver.find_element_by_xpath('//*[@type="submit"]')
         submit.click()
         sleep(3)
