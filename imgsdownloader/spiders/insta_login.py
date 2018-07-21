@@ -16,7 +16,7 @@ class InstaLoginSpider(scrapy.Spider):
         username = driver.find_element_by_name('username')
         username.send_keys('h.s.umer.farooq@gmail.com')
         password = driver.find_element_by_name('password')
-        password.send_keys('')
+        password.send_keys('password')
         login = driver.find_element_by_tag_name('button')
         login.click()
         sleep(2)
